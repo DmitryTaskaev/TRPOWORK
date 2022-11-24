@@ -1,0 +1,38 @@
+﻿<Window x:Class="Langue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Langue"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel HorizontalAlignment="Left">
+        <Label x:Name="Name" Content="Имя:" Padding="0" Margin="10,10,0,0"/>
+        <TextBox Width="750" Height="25" Margin="10,5,0,0"/>
+        <Label x:Name="Family" Content="Фамилия:" Padding="0" Margin="10,10,0,0"/>
+        <TextBox Width="750" Height="25" Margin="10,5,0,0"/>
+        <Label x:Name="Phonenumber" Content="Номер телефона:" Padding="0" Margin="10,10,0,0"/>
+        <TextBox Width="750" Height="25" Margin="10,5,0,0"/>
+        <Label x:Name="Langu" Content="Язык:" Padding="0" Margin="10,5,0,0"/>
+        <ComboBox x:Name="Lang" Width="750" Height="35" Margin="10,5,0,0" HorizontalAlignment="Left" SelectionChanged="Lang_SelectionChanged">
+            <ComboBoxItem IsSelected="True" Width="750" Height="35" HorizontalAlignment="Left" Selected="ComboBoxItem_Selected">
+                <StackPanel Height="35" Width="750" Margin="0,0,0,0" Orientation="Horizontal" >
+                    <Image Source="./Image/1.png" Height="20"/>
+                    <Label Content="Русский" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem Width="750" Height="35" HorizontalAlignment="Left">
+                <StackPanel Height="35" Width="750" Margin="0,0,0,0" Orientation="Horizontal" >
+                    <Image Source="./Image/7.png" Height="20"/>
+                    <Label Content="Germany" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem Width="750" Height="35" HorizontalAlignment="Left">
+                <StackPanel Height="35" Width="750" Margin="0,0,0,0" Orientation="Horizontal" >
+                    <Image Source="./Image/3.png" Height="15"/>
+                    <Label Content="English" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</Window>

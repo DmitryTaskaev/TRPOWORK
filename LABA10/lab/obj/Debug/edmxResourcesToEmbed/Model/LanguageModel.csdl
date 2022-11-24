@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LanguageModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="LanguageModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CourseSet" EntityType="LanguageModel.Course" />
+    <EntitySet Name="LanguageSet" EntityType="LanguageModel.Language" />
+    <EntitySet Name="TeacherSet" EntityType="LanguageModel.Teacher" />
+    <AssociationSet Name="CourseLanguage" Association="LanguageModel.CourseLanguage">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Language" EntitySet="LanguageSet" />
+    </AssociationSet>
+    <AssociationSet Name="CourseTeacher" Association="LanguageModel.CourseTeacher">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Teacher" EntitySet="TeacherSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="200" />
+    <Property Name="Price" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="LanguageModel.CourseLanguage" FromRole="Course" ToRole="Language" />
+    <NavigationProperty Name="Teacher" Relationship="LanguageModel.CourseTeacher" FromRole="Course" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="200" />
+    <NavigationProperty Name="Courses" Relationship="LanguageModel.CourseLanguage" FromRole="Language" ToRole="Course" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherId" />
+    </Key>
+    <Property Name="TeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="200" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="200" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="200" />
+    <NavigationProperty Name="Courses" Relationship="LanguageModel.CourseTeacher" FromRole="Teacher" ToRole="Course" />
+  </EntityType>
+  <Association Name="CourseLanguage">
+    <End Type="LanguageModel.Course" Role="Course" Multiplicity="*" />
+    <End Type="LanguageModel.Language" Role="Language" Multiplicity="1" />
+  </Association>
+  <Association Name="CourseTeacher">
+    <End Type="LanguageModel.Course" Role="Course" Multiplicity="*" />
+    <End Type="LanguageModel.Teacher" Role="Teacher" Multiplicity="*" />
+  </Association>
+</Schema>

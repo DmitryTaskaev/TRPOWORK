@@ -1,0 +1,16 @@
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\bin\Debug\RadioButtonListBox.exe.config
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\bin\Debug\RadioButtonListBox.exe
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\bin\Debug\RadioButtonListBox.pdb
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.csproj.AssemblyReference.cache
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\MainWindow.g.cs
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\App.g.cs
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox_MarkupCompile.cache
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox_MarkupCompile.lref
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\MainWindow.baml
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.g.resources
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.Properties.Resources.resources
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.csproj.GenerateResource.cache
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.csproj.CoreCompileInputs.cache
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.exe
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\RadioButtonListBox.pdb
+C:\Users\328-6\Documents\Таскаев\RadioButtonListBox\obj\Debug\App.baml

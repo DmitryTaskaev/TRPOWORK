@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LanguageModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LanguageModelStoreContainer">
+    <EntitySet Name="CourseSet" EntityType="LanguageModel.Store.CourseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LanguageSet" EntityType="LanguageModel.Store.LanguageSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeacherSet" EntityType="LanguageModel.Store.TeacherSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CourseTeacher" EntityType="LanguageModel.Store.CourseTeacher" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CourseLanguage" Association="LanguageModel.Store.CourseLanguage">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Language" EntitySet="LanguageSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseTeacher_Course" Association="LanguageModel.Store.FK_CourseTeacher_Course">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="CourseTeacher" EntitySet="CourseTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseTeacher_Teacher" Association="LanguageModel.Store.FK_CourseTeacher_Teacher">
+      <End Role="Teacher" EntitySet="TeacherSet" />
+      <End Role="CourseTeacher" EntitySet="CourseTeacher" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CourseSet">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="Language_LanguageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LanguageSet">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TeacherSet">
+    <Key>
+      <PropertyRef Name="TeacherId" />
+    </Key>
+    <Property Name="TeacherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="CourseTeacher">
+    <Key>
+      <PropertyRef Name="Courses_CourseId" />
+      <PropertyRef Name="Teacher_TeacherId" />
+    </Key>
+    <Property Name="Courses_CourseId" Type="int" Nullable="false" />
+    <Property Name="Teacher_TeacherId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CourseLanguage">
+    <End Role="Course" Type="LanguageModel.Store.CourseSet" Multiplicity="*" />
+    <End Role="Language" Type="LanguageModel.Store.LanguageSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Language_LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseTeacher_Course">
+    <End Role="Course" Type="LanguageModel.Store.CourseSet" Multiplicity="1" />
+    <End Role="CourseTeacher" Type="LanguageModel.Store.CourseTeacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="CourseTeacher">
+        <PropertyRef Name="Courses_CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseTeacher_Teacher">
+    <End Role="CourseTeacher" Type="LanguageModel.Store.CourseTeacher" Multiplicity="*" />
+    <End Role="Teacher" Type="LanguageModel.Store.TeacherSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TeacherId" />
+      </Principal>
+      <Dependent Role="CourseTeacher">
+        <PropertyRef Name="Teacher_TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

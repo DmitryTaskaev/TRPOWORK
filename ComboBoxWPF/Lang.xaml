@@ -1,0 +1,38 @@
+﻿<Window x:Class="ComboBoxWPF.Lang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComboBoxWPF"
+        mc:Ignorable="d"
+        Title="Регестрация" Height="450" Width="800">
+    <StackPanel HorizontalAlignment="Left">
+        <Label Content="Имя:" Padding="0" Margin="10,10,0,0"/>
+        <TextBox x:Name="Name" Width="750" Height="25" Margin="10,5,0,0"/>
+        <Label Content="Фамилия:" Padding="0" Margin="10,10,0,0"/>
+        <TextBox x:Name="Firstname" Width="750" Height="25" Margin="10,5,0,0"/>
+        <Label Content="Номер телефона:" Padding="0" Margin="10,10,0,0"/>
+        <TextBox x:Name="Phonenumber" Width="750" Height="25" Margin="10,5,0,0"/>
+        <Label Content="Язык:" Padding="0" Margin="10,5,0,0"/>
+        <ComboBox x:Name="Lang" Width="750" Height="25" Margin="10,5,0,0">
+            <ComboBoxItem IsSelected="True">
+                <StackPanel Height="40" Width="750" Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="./Image/1.png" Height="20"/>
+                    <TextBlock Text="Русский" Padding="0" Margin="0,0,0,0"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Height="40">
+                    <Image Source="./Image/1.png"/>
+                    <TextBlock Text="Русский"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Height="40">
+                    <Image Source="./Image/1.png"/>
+                    <TextBlock Text="Русский"/>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</Window>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LanguageModelStoreContainer" CdmEntityContainer="LanguageModelContainer">
+    <EntitySetMapping Name="CourseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LanguageModel.Course)">
+        <MappingFragment StoreEntitySet="CourseSet">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LanguageModel.Language)">
+        <MappingFragment StoreEntitySet="LanguageSet">
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LanguageModel.Teacher)">
+        <MappingFragment StoreEntitySet="TeacherSet">
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CourseLanguage" TypeName="LanguageModel.CourseLanguage" StoreEntitySet="CourseSet">
+      <EndProperty Name="Language">
+        <ScalarProperty Name="LanguageId" ColumnName="Language_LanguageId" />
+      </EndProperty>
+      <EndProperty Name="Course">
+        <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CourseTeacher" TypeName="LanguageModel.CourseTeacher" StoreEntitySet="CourseTeacher">
+      <EndProperty Name="Course">
+        <ScalarProperty Name="CourseId" ColumnName="Courses_CourseId" />
+      </EndProperty>
+      <EndProperty Name="Teacher">
+        <ScalarProperty Name="TeacherId" ColumnName="Teacher_TeacherId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
